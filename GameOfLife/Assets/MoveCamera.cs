@@ -17,11 +17,16 @@ public class MoveCamera : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         float x = Input.GetAxis("Horizontal") * speed;
-        float y = Input.GetAxis("Vertical")  * speed;
+        float y = 0;
+        float z = Input.GetAxis("Vertical")  * speed;
+
+        if (Input.GetKey(KeyCode.Q)) y--;
+        if (Input.GetKey(KeyCode.E)) y++;
+
         yaw += speedH * Input.GetAxis("Mouse X");
         pitch -= speedV * Input.GetAxis("Mouse Y");
 
         transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
-        transform.position += new Vector3(x, 0, y);
+        transform.Translate(x, y, z);
 	}
 }

@@ -6,15 +6,21 @@ public class GameOfLife : MonoBehaviour
 {
 
     public GameObject cellPrefab;
+
     int numberOfColums = 100;
     int numberOfRows = 100;
+
     public float tick;
     float nextTick = 0;
+
     GameObject[,] cells;
+
     int fillPrecentage = 30;
+    
     // Use this for initialization
     void Start()
     {
+        Cursor.visible = false;
         GameSetup();
     }
 
